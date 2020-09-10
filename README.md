@@ -23,14 +23,17 @@ The following libraries are used:
 - glm
 - GSL
 - sdbus-c++
+- make sure you have `imagemagick` installed
+- download font Hack-Regular.ttf, place it in /usr/share/fonts/TTF/
 
 In ArchLinux, these are in the following packages: `boost`, `cli11` (from AUR), `fmt`,
 `glm`, `microsoft-gsl`, `sdbus-cpp` (from AUR).
 
 ```
 mkdir build
+cmake . -D CMAKE_TOOLCHAIN_FILE=/home/davis/www/vcpkg/scripts/buildsystems/vcpkg.cmake -B build
 cd build
-cmake .. --build
+make
 ```
 
 [rog-core](https://github.com/flukejones/rog-core) should also be running to actually
