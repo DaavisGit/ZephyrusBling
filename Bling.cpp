@@ -64,7 +64,7 @@ Bling::Bling(sdbus::IConnection & connection, std::string object_path, const std
 	ipstream err;
 
 	child imagemagick(search_path("convert"), "-background", "transparent", "-fill", "white", "-font", font,
-	                  "-pointsize", "30", "label:" + text, "png:", std_out > is, std_err > err);
+	                  "-pointsize", "30", "label:" + text, "/tmp/ZephyrusBlingText.gif", std_out > is, std_err > err);
 
 	std::vector<uint8_t> pngdata{std::istreambuf_iterator<char>(is), std::istreambuf_iterator<char>()};
 	std::string error{std::istreambuf_iterator<char>(err), std::istreambuf_iterator<char>()};

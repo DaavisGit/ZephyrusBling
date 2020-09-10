@@ -57,11 +57,10 @@ Image::Image(const std::string & filename)
 
 Image::Image(gsl::span<uint8_t> buffer)
 {
-	pixel * data =
-	        reinterpret_cast<pixel *>(stbi_load_from_memory(buffer.data(), buffer.size(), &w, &h, nullptr, 2));
+	pixel * data = reinterpret_cast<pixel *>(stbi_load("/tmp/ZephyrusBlingText.gif", &w, &h, nullptr, 2));
 
 	if (!data)
-		throw std::runtime_error(std::string("Cannot load from memory: ") + stbi_failure_reason());
+		throw std::runtime_error(stbi_failure_reason());
 
 	pixels.assign(data, data + w * h);
 
